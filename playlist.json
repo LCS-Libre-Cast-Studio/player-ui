@@ -3,28 +3,12 @@
     "title": "Zytoqu",
     "artist": "Wolfgang_ZYT",
     "type": "audio",
-    "icon": "https://www.google.com/url?sa=t&url=https%3A%2F%2Fwww.youtube.com%2F%40Zytoqu",
-    "url": "https://nexnet.alexgamingdev.tech/audio/AUD-20260607-WA0027.mp3"
-  },
-  {
-    "title": "Example",
-    "artist": "Happy Easter LCS",
-    "type": "audio",
-    "icon": "",
-    "url": "https://nexnet.alexgamingdev.tech/audio/AUD-20260607-WA0027.mp3"
-  },
-  {
-    "title": "Exxample1",
-    "artist": "Happy Easter LCS",
-    "type": "audio",
-    "icon": "",
     "url": "https://nexnet.alexgamingdev.tech/audio/AUD-20260607-WA0027.mp3"
   },
   {
     "title": "Flowers",
     "artist": "adege",
     "type": "video",
-    "icon": "https://cdn.pixabay.com/video/2026/04/07/345062_tiny.jpg",
     "url": "https://cdn.pixabay.com/video/2026/04/07/345062_large.mp4"
   }
 ]
