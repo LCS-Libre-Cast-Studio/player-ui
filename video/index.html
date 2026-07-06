@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <title>Libre Cast Studio Video</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
+</head>
+<body class="bg-black h-screen flex items-center justify-center">
+    <video id="player" playsinline controls class="w-full max-w-4xl"></video>
+    
+    <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const videoUrl = params.get('url');
+        
+        if (videoUrl) {
+            const player = new Plyr('#player');
+            player.source = {
+                type: 'video',
+                sources: [{ src: videoUrl, type: 'video/mp4' }]
+            };
+            player.play().catch(e => console.log("Autoplay blockiert:", e));
+        }
+    </script>
+</body>
+</html>

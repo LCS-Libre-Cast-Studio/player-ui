@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head><meta charset="UTF-8"><title>LCS Architecture</title></head>
+<body style="font-family: sans-serif; line-height: 1.6; max-width: 800px; margin: 40px auto; padding: 20px;">
+    <h1>LCS System Architecture</h1>
+    <p>Libre Cast Studio is a <strong>headless, static-first streaming dashboard</strong>. It eliminates server-side overhead by relying on a decoupled architecture:</p>
+    <ul>
+        <li><strong>Frontend (LCS Player):</strong> A static SPA hosted on GitHub Pages.</li>
+        <li><strong>Data Layer:</strong> A centralized <code>playlist.json</code> registry sourced from the <code>media-repo</code>.</li>
+    </ul>
+    <p>This design ensures high availability, zero latency via edge distribution, and minimal infrastructure footprint.</p>
+</body>
+</html>

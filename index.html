@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Libre Cast Studio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
+    <style>
+        body { background-color: #000000; color: #FFFFFF; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+        .player-bar { background-color: #000000; border-top: 1px solid #282828; }
+        .plyr--audio .plyr__controls { background: transparent; padding: 0; }
+        .plyr__control--pressed, .plyr__control:hover { background: #1DB954 !important; }
+    </style>
+</head>
+<body class="h-screen flex flex-col overflow-hidden">
+
+    <header class="flex items-center justify-between p-4 px-6">
+        <div class="flex items-center gap-4">
+            <svg class="w-8 h-8" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="none" stroke="white" stroke-width="4"/><path d="M40 35 L65 50 L40 65 Z" fill="white"/></svg>
+            <nav class="flex gap-6 text-sm font-bold text-zinc-400">
+                <button onclick="render('home')" class="hover:text-white">Home</button>
+                <button onclick="render('audio')" class="hover:text-white">Music</button>
+                <button onclick="render('video')" class="hover:text-white">Video</button>
+            </nav>
+        </div>
+        <input id="search" type="text" placeholder="Search..." class="bg-[#2a2a2a] border-none rounded-full px-4 py-2 text-sm w-64 focus:outline-none focus:ring-2 focus:ring-white">
+    </header>
+
+    <main id="content" class="flex-grow p-6 overflow-y-auto grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6"></main>
+
+    <footer class="player-bar p-4 px-6 flex items-center justify-between">
+        <div class="w-full">
+            <audio id="player" controls class="w-full"></audio>
+        </div>
+    </footer>
+
+    <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
