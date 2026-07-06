@@ -1,21 +1,22 @@
-MIT License
+LCS PRIVATE LICENSE
 
-Copyright (c) 2026 LCS – Libre Cast Studio
+Copyright (c) 2026 LCS – Libre Cast Studio. All rights reserved.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+1. GRANT OF USE
+The provider grants the user the right to use, view, and listen to the content provided via this platform for personal, non-commercial purposes. Copying, modifying, or merging this source code is permitted for educational purposes on the user's private computer.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+2. CONTRIBUTIONS
+Users are encouraged to contribute to the project via Pull Requests (e.g., UI improvements, bug fixes). By submitting a contribution, the user agrees that the code becomes part of the project and is subject to these terms.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+3. PROHIBITED ACTIONS
+The following actions are strictly prohibited:
+- Copying or cloning this platform to sell it as a separate commercial product or service.
+- Using this project or any part of its source code for commercial gain (e.g., including plugins, selling hosting services, or monetizing the interface).
+- Uploading any content protected by copyright without holding the necessary distribution rights.
+- Attempting to bypass security measures or misusing the infrastructure.
+
+4. LIABILITY DISCLAIMER
+THE PLATFORM IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND. THE PLATFORM OPERATORS ARE NOT LIABLE FOR THE CONTENT UPLOADED BY USERS. EACH USER IS SOLELY RESPONSIBLE FOR THE MATERIAL THEY SUBMIT OR LINK. THE PLATFORM OPERATORS RESERVE THE RIGHT TO DELETE OR MODIFY ANY CONTENT AT ANY TIME WITHOUT PRIOR NOTICE.
+
+5. INTELLECTUAL PROPERTY
+All rights concerning the platform architecture and brand remain with LCS – Libre Cast Studio. Any inquiries regarding copyright or takedown requests must be directed to: cc@alexgaming.is-a.dev.
