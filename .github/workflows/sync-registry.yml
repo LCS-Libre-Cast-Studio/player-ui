@@ -2,7 +2,7 @@ name: Sync Playlist Registry
 
 on:
   schedule:
-    - cron: '30 22 * * *'
+    - cron: '00 00 * * *'
   workflow_dispatch:
 
 jobs:
@@ -20,8 +20,8 @@ jobs:
 
       - name: Commit and Push
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "Libre Cast Studio [BOT]"
+          git config user.email "alexander.dennhoven@alexgaming.is-a.dev"
           git add playlist.json
           git commit -m "Auto-sync registry: $(date)" || echo "No changes to commit"
           git push
