@@ -16,12 +16,17 @@ jobs:
 
       - name: Fetch and Overwrite playlist.json
         run: |
-          curl -o playlist.json https://media.alexgaming.dev/playlist.json
+          curl -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" \
+               -L -f -o playlist.json https://media.alexgaming.dev/playlist.json
 
       - name: Commit and Push
         run: |
           git config user.name "Libre Cast Studio [BOT]"
           git config user.email "alexander.dennhoven@alexgaming.is-a.dev"
-          git add playlist.json
-          git commit -m "Auto-sync registry: $(date)" || echo "No changes to commit"
-          git push
+          if [[ -n $(git status --porcelain playlist.json) ]]; then
+            git add playlist.json
+            git commit -m "Auto-sync registry: $(date)"
+            git push
+          else
+            echo "Keine Änderungen erkannt."
+          fi
