@@ -1,6 +1,8 @@
 # Terms of Service & Usage Guidelines
 
 By using Libre Cast Studio (LCS), you agree to the following terms and conditions.
+> [!WARNING]
+> **Unlicensed or unverified submissions without a direct license tag in the PR or prior verification via email will be rejected immediately without discussion.**
 
 ## 1. Responsibility
 You are solely responsible for all content (audio, video, metadata) you submit via Pull Request or link to our services. You must own the rights to the content or have explicit permission to distribute it.
