@@ -22,20 +22,19 @@ function render(view, query = '') {
     
     let filtered = library;
 
-    /* AI GENERATED / BUG FIXED START */
-    if (cleanQuery.startsWith('pub:') || cleanQuery.startsWith('art:') || cleanQuery.startsWith('tit:')) {
-        if (cleanQuery.startsWith('pub:')) {
-            const searchVal = cleanQuery.replace('pub:', '').trim();
-            filtered = filtered.filter(m => m.artist.toLowerCase().includes(searchVal));
-        } 
-        else if (cleanQuery.startsWith('art:')) {
-            const searchVal = cleanQuery.replace('art:', '').trim();
-            filtered = filtered.filter(m => m.artist.toLowerCase().includes(searchVal));
-        } 
-        else if (cleanQuery.startsWith('tit:')) {
-            const searchVal = cleanQuery.replace('tit:', '').trim();
-            filtered = filtered.filter(m => m.title.toLowerCase().includes(searchVal));
-        }
+    // NOTE: Advanced prefix search filter (AI-assisted optimization)
+    const prefix = cleanQuery.substring(0, 4);
+    const searchVal = cleanQuery.substring(4).trim();
+
+    const fieldMap = {
+        'art:': 'artist',
+        'pub:': 'artist',
+        'tit:': 'title'
+    };
+
+    if (fieldMap[prefix] && searchVal) {
+        const field = fieldMap[prefix];
+        filtered = filtered.filter(m => m[field].toLowerCase().includes(searchVal));
     } 
     else {
         filtered = (view === 'home') ? library : library.filter(m => m.type === view);
@@ -47,7 +46,6 @@ function render(view, query = '') {
             );
         }
     }
-    /* AI GENERATED / BUG FIXED END */
     
     if (filtered.length === 0) {
         container.innerHTML = `<div class="col-span-full text-zinc-500 text-sm text-center py-8">No results found.</div>`;
