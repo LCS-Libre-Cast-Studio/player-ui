@@ -1,5 +1,6 @@
 const player = new Plyr('#player', { controls: ['play', 'progress', 'current-time', 'mute', 'volume'] });
 let library = [];
+let currentView = 'home';
 
 async function init() {
     try {
@@ -9,10 +10,30 @@ async function init() {
     } catch (err) { console.error("Init Error:", err); }
 }
 
+function switchTab(view) {
+    currentView = view;
+    document.getElementById('search').value = ''; 
+    render(view);
+}
+
 function render(view, query = '') {
     const container = document.getElementById('content');
+    
     let filtered = (view === 'home') ? library : library.filter(m => m.type === view);
     
+    if (query.trim() !== '') {
+        const lowerQuery = query.toLowerCase();
+        filtered = filtered.filter(m => 
+            m.title.toLowerCase().includes(lowerQuery) || 
+            m.artist.toLowerCase().includes(lowerQuery)
+        );
+    }
+    
+    if (filtered.length === 0) {
+        container.innerHTML = `<div class="col-span-full text-zinc-500 text-sm text-center py-8">No results found.</div>`;
+        return;
+    }
+
     container.innerHTML = filtered.map(m => `
         <div class="bg-[#181818] p-4 rounded-md hover:bg-[#282828] transition-all cursor-pointer flex flex-col gap-2 h-48" 
              onclick="handlePlay('${m.url}', '${m.type}')">
@@ -36,5 +57,8 @@ function handlePlay(url, type) {
     }
 }
 
-document.getElementById('search').addEventListener('input', (e) => render('home', e.target.value));
+document.getElementById('search').addEventListener('input', (e) => {
+    render(currentView, e.target.value);
+});
+
 init();
