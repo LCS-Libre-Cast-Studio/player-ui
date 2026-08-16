@@ -20,9 +20,9 @@ function render(view, query = '') {
     const container = document.getElementById('content');
     const cleanQuery = query.trim().toLowerCase();
     
-    let filtered = library;
+    let filtered = (view === 'home') ? library : library.filter(m => m.type === view);
 
-    // NOTE: Advanced prefix search filter (AI-assisted optimization)
+    /* <--AI Optimazing Start --> */
     const prefix = cleanQuery.substring(0, 4);
     const searchVal = cleanQuery.substring(4).trim();
 
@@ -32,20 +32,18 @@ function render(view, query = '') {
         'tit:': 'title'
     };
 
-    if (fieldMap[prefix] && searchVal) {
-        const field = fieldMap[prefix];
-        filtered = filtered.filter(m => m[field].toLowerCase().includes(searchVal));
-    } 
-    else {
-        filtered = (view === 'home') ? library : library.filter(m => m.type === view);
-        
-        if (cleanQuery !== '') {
+    if (cleanQuery !== '') {
+        if (fieldMap[prefix] && searchVal) {
+            const field = fieldMap[prefix];
+            filtered = filtered.filter(m => m[field].toLowerCase().includes(searchVal));
+        } else {
             filtered = filtered.filter(m => 
                 m.title.toLowerCase().includes(cleanQuery) || 
                 m.artist.toLowerCase().includes(cleanQuery)
             );
         }
     }
+    /* <-- End --> */
     
     if (filtered.length === 0) {
         container.innerHTML = `<div class="col-span-full text-zinc-500 text-sm text-center py-8">No results found.</div>`;
