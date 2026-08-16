@@ -41,9 +41,9 @@
         <div class="flex items-center gap-4">
             <svg class="w-8 h-8" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="none" stroke="white" stroke-width="4"/><path d="M40 35 L65 50 L40 65 Z" fill="white"/></svg>
             <nav class="flex gap-6 text-sm font-bold text-zinc-400">
-                <button onclick="render('home')" class="hover:text-white">Home</button>
-                <button onclick="render('audio')" class="hover:text-white">Music</button>
-                <button onclick="render('video')" class="hover:text-white">Video</button>
+                <button onclick="switchTab('home')" class="hover:text-white">Home</button>
+                <button onclick="switchTab('audio')" class="hover:text-white">Music</button>
+                <button onclick="switchTab('video')" class="hover:text-white">Video</button>
             </nav>
         </div>
         <input id="search" type="text" placeholder="Search..." class="bg-[#2a2a2a] border-none rounded-full px-4 py-2 text-sm w-64 focus:outline-none focus:ring-2 focus:ring-white">
