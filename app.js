@@ -18,12 +18,12 @@ function switchTab(view) {
 
 function render(view, query = '') {
     const container = document.getElementById('content');
+    const cleanQuery = query.trim().toLowerCase();
     
-    let filtered = (view === 'home') ? library : library.filter(m => m.type === view);
-    
-    if (query.trim() !== '') {
-        const cleanQuery = query.trim().toLowerCase();
+    let filtered = library;
 
+    /* AI GENERATED / BUG FIXED START */
+    if (cleanQuery.startsWith('pub:') || cleanQuery.startsWith('art:') || cleanQuery.startsWith('tit:')) {
         if (cleanQuery.startsWith('pub:')) {
             const searchVal = cleanQuery.replace('pub:', '').trim();
             filtered = filtered.filter(m => m.artist.toLowerCase().includes(searchVal));
@@ -35,14 +35,19 @@ function render(view, query = '') {
         else if (cleanQuery.startsWith('tit:')) {
             const searchVal = cleanQuery.replace('tit:', '').trim();
             filtered = filtered.filter(m => m.title.toLowerCase().includes(searchVal));
-        } 
-        else {
+        }
+    } 
+    else {
+        filtered = (view === 'home') ? library : library.filter(m => m.type === view);
+        
+        if (cleanQuery !== '') {
             filtered = filtered.filter(m => 
                 m.title.toLowerCase().includes(cleanQuery) || 
                 m.artist.toLowerCase().includes(cleanQuery)
             );
         }
     }
+    /* AI GENERATED / BUG FIXED END */
     
     if (filtered.length === 0) {
         container.innerHTML = `<div class="col-span-full text-zinc-500 text-sm text-center py-8">No results found.</div>`;
