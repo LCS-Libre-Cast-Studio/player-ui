@@ -1,6 +1,6 @@
 const player = new Plyr('#player', { controls: ['play', 'progress', 'current-time', 'mute', 'volume'] });
 let library = [];
-let currentView = 'home';
+let currentView = 'home'; 
 
 async function init() {
     try {
@@ -22,11 +22,26 @@ function render(view, query = '') {
     let filtered = (view === 'home') ? library : library.filter(m => m.type === view);
     
     if (query.trim() !== '') {
-        const lowerQuery = query.toLowerCase();
-        filtered = filtered.filter(m => 
-            m.title.toLowerCase().includes(lowerQuery) || 
-            m.artist.toLowerCase().includes(lowerQuery)
-        );
+        const cleanQuery = query.trim().toLowerCase();
+
+        if (cleanQuery.startsWith('pub:')) {
+            const searchVal = cleanQuery.replace('pub:', '').trim();
+            filtered = filtered.filter(m => m.artist.toLowerCase().includes(searchVal));
+        } 
+        else if (cleanQuery.startsWith('art:')) {
+            const searchVal = cleanQuery.replace('art:', '').trim();
+            filtered = filtered.filter(m => m.artist.toLowerCase().includes(searchVal));
+        } 
+        else if (cleanQuery.startsWith('tit:')) {
+            const searchVal = cleanQuery.replace('tit:', '').trim();
+            filtered = filtered.filter(m => m.title.toLowerCase().includes(searchVal));
+        } 
+        else {
+            filtered = filtered.filter(m => 
+                m.title.toLowerCase().includes(cleanQuery) || 
+                m.artist.toLowerCase().includes(cleanQuery)
+            );
+        }
     }
     
     if (filtered.length === 0) {
@@ -52,7 +67,12 @@ function handlePlay(url, type) {
     if (type === 'video') {
         window.location.href = window.location.origin + '/video/index.html?url=' + encodeURIComponent(url);
     } else {
-        player.source = { type: 'audio', sources: [{ src: url, type: 'audio/mp3' }] };
+        let mimeType = 'audio/mp3';
+        if (url.endsWith('.wav')) mimeType = 'audio/wav';
+        if (url.endsWith('.flac')) mimeType = 'audio/flac';
+        if (url.endsWith('.ogg')) mimeType = 'audio/ogg';
+
+        player.source = { type: 'audio', sources: [{ src: url, type: mimeType }] };
         player.play();
     }
 }
