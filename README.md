@@ -14,3 +14,6 @@ LCS is a static Single-Page Application (SPA) designed for zero-backend deployme
 1. Fork the repo.
 2. Ensure your registry endpoint is valid.
 3. Deploy via GitHub Pages.
+
+> [!WARNING]
+> **Unlicensed or unverified submissions without a direct license tag in the PR or prior verification via email will be rejected immediately without discussion.**
